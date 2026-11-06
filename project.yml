@@ -1,0 +1,45 @@
+name: SimpleChat
+options:
+  bundleIdPrefix: com.simplechat
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    TARGETED_DEVICE_FAMILY: "1,2"
+    ENABLE_BITCODE: "NO"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+
+targets:
+  SimpleChat:
+    type: application
+    platform: iOS
+    sources:
+      - path: SimpleChat
+    info:
+      path: SimpleChat/Info.plist
+      properties:
+        CFBundleDisplayName: 企信通
+        UILaunchScreen: {}
+        # 自建服务器为 http/ws 明文地址，需放行 ATS
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.simplechat.ios
+        MARKETING_VERSION: 1.3.0
+        CURRENT_PROJECT_VERSION: 1
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_EMIT_LOC_STRINGS: YES
